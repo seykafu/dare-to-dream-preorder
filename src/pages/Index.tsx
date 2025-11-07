@@ -14,10 +14,10 @@ const Index = () => {
   return (
     <main className="min-h-screen">
       <Hero onRegisterClick={scrollToPreOrder} />
-      <BookSynopsis />
       <div ref={preOrderRef}>
         <PreOrderForm />
       </div>
+      <BookSynopsis />
       <AboutAuthor />
       
       <footer className="py-8 bg-muted/30 text-center text-muted-foreground">
