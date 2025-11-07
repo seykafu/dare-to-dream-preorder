@@ -59,16 +59,20 @@ export default {
         },
       },
       backgroundImage: {
-        'gradient-warm': 'var(--gradient-warm)',
-        'gradient-accent': 'var(--gradient-accent)',
+        'gradient-primary': 'var(--gradient-primary)',
+        'gradient-secondary': 'var(--gradient-secondary)',
+        'gradient-vibrant': 'var(--gradient-vibrant)',
       },
       boxShadow: {
-        'soft': 'var(--shadow-soft)',
-        'glow': 'var(--shadow-glow)',
+        'modern': 'var(--shadow-modern)',
+        'hover': 'var(--shadow-hover)',
       },
       fontFamily: {
         'serif': ['Playfair Display', 'serif'],
         'sans': ['Inter', 'sans-serif'],
+      },
+      backdropBlur: {
+        'nav': 'var(--nav-blur)',
       },
       borderRadius: {
         lg: "var(--radius)",

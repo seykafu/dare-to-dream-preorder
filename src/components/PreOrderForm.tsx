@@ -74,17 +74,17 @@ export const PreOrderForm = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-warm">
+    <section className="py-16 bg-gradient-secondary">
       <div className="container px-6">
         <div className="max-w-2xl mx-auto">
-          <Card className="p-8 md:p-12 bg-card/90 backdrop-blur-sm shadow-glow border-primary/20">
+          <Card className="p-6 md:p-10 bg-card/90 backdrop-blur-sm shadow-modern border-primary/20">
             {isSuccess ? (
               <div className="text-center space-y-4">
-                <CheckCircle className="w-16 h-16 text-primary mx-auto" />
-                <h3 className="font-serif text-3xl font-bold text-foreground">
+                <CheckCircle className="w-12 h-12 text-primary mx-auto" />
+                <h3 className="font-serif text-2xl font-bold text-foreground">
                   You're All Set!
                 </h3>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-base text-muted-foreground">
                   We'll notify you as soon as pre-orders are available.
                 </p>
                 <Button 
@@ -97,12 +97,12 @@ export const PreOrderForm = () => {
               </div>
             ) : (
               <>
-                <div className="text-center mb-8">
-                  <Mail className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <h3 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
+                <div className="text-center mb-6">
+                  <Mail className="w-10 h-10 text-primary mx-auto mb-3" />
+                  <h3 className="font-serif text-2xl md:text-3xl font-bold mb-3 text-foreground">
                     Be the First to Know
                   </h3>
-                  <p className="text-lg text-muted-foreground">
+                  <p className="text-base text-muted-foreground">
                     Register now to receive an exclusive notification when pre-orders open
                   </p>
                 </div>
@@ -114,7 +114,7 @@ export const PreOrderForm = () => {
                       placeholder="Your name (optional)"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="text-lg py-6 bg-background/50"
+                      className="text-base py-5 bg-background/50"
                       maxLength={100}
                     />
                   </div>
@@ -124,7 +124,7 @@ export const PreOrderForm = () => {
                       placeholder="Your email address"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="text-lg py-6 bg-background/50"
+                      className="text-base py-5 bg-background/50"
                       required
                       maxLength={255}
                     />
@@ -132,7 +132,7 @@ export const PreOrderForm = () => {
                   <Button 
                     type="submit"
                     size="lg"
-                    className="w-full text-lg py-6 bg-gradient-accent hover:shadow-glow transition-all duration-300"
+                    className="w-full text-base py-5 bg-gradient-primary hover:shadow-hover transition-all duration-300"
                     disabled={isLoading}
                   >
                     {isLoading ? "Registering..." : "Register for Pre-Order"}
