@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern design system with vibrant pink and beige palette */
+
+@layer base {
+  :root {
+    /* Modern pink and beige palette */
+    --background: 340 60% 97%;
+    --foreground: 340 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 340 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 20% 15%;
+
+    --primary: 340 85% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 35 45% 88%;
+    --secondary-foreground: 340 20% 15%;
+
+    --muted: 340 30% 94%;
+    --muted-foreground: 340 15% 45%;
+
+    --accent: 320 75% 70%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 340 25% 90%;
+    --input: 340 25% 92%;
+    --ring: 340 85% 65%;
+
+    --radius: 1rem;
+
+    /* Modern design tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(340 85% 65%) 0%, hsl(320 75% 70%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(340 60% 97%) 0%, hsl(35 45% 95%) 100%);
+    --gradient-vibrant: linear-gradient(135deg, hsl(340 85% 65%) 0%, hsl(35 75% 75%) 100%);
+    --shadow-modern: 0 8px 30px -6px hsl(340 85% 65% / 0.2);
+    --shadow-hover: 0 12px 40px -8px hsl(340 85% 65% / 0.3);
+    --nav-blur: blur(12px);
+  }
+
+  .dark {
+    --background: 340 30% 10%;
+    --foreground: 340 15% 95%;
+
+    --card: 340 25% 12%;
+    --card-foreground: 340 15% 95%;
+
+    --popover: 340 25% 12%;
+    --popover-foreground: 340 15% 95%;
+
+    --primary: 340 85% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 340 20% 18%;
+    --secondary-foreground: 340 15% 95%;
+
+    --muted: 340 20% 16%;
+    --muted-foreground: 340 10% 65%;
+
+    --accent: 320 75% 70%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 340 20% 18%;
+    --input: 340 20% 18%;
+    --ring: 340 85% 65%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(340 85% 65%) 0%, hsl(320 75% 70%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(340 30% 10%) 0%, hsl(35 30% 15%) 100%);
+    --gradient-vibrant: linear-gradient(135deg, hsl(340 85% 65%) 0%, hsl(35 75% 75%) 100%);
+    --shadow-modern: 0 8px 30px -6px hsl(340 85% 65% / 0.3);
+    --shadow-hover: 0 12px 40px -8px hsl(340 85% 65% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+}
