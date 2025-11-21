@@ -1,75 +1,54 @@
-import { Card } from "@/components/ui/card";
 import { ExternalLink } from "lucide-react";
 
 export const AboutAuthor = () => {
   return (
-    <section className="py-16 bg-background">
-      <div className="container px-6">
-        <h2 className="font-serif text-4xl md:text-5xl font-bold text-center mb-4 text-foreground">
-          About the Author
-        </h2>
-        <p className="text-lg text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
-          Kasey Fu - Product Leader, Writer, and Community Builder
-        </p>
-
-        <div className="max-w-4xl mx-auto space-y-6">
-          <Card className="p-6 md:p-10 bg-card/80 backdrop-blur-sm shadow-modern border-border/50">
-            <h3 className="font-serif text-2xl font-bold mb-3 text-foreground">
-              Professional Journey
-            </h3>
-            <p className="text-base leading-relaxed text-card-foreground mb-3">
-              I'm a product manager, writer, author, and community builder. As co-founder of PM Hive, 
-              Vancouver's premier PM community, I've dedicated myself to helping professionals navigate 
-              their careers with confidence.
+    <section id="about-author" className="py-16 md:py-24 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">
+            About the Author — Kasey Fu
+          </h2>
+          
+          <div className="space-y-6 text-base md:text-lg text-muted-foreground leading-relaxed">
+            <p>
+              Kasey is a product manager, community builder, and writer. He works with Gen Z and 
+              millennial professionals navigating career anxiety and uncertainty, helping them find 
+              clarity and build meaningful paths forward.
             </p>
-            <p className="text-base leading-relaxed text-card-foreground">
-              My career has taken me from improving Bing Search marketshare at Microsoft to now building 
-              Planview's flagship AI product, Planview Copilot. I run both the PM Hive Newsletter as well 
-              as other productivity blogs on Medium, sharing insights and strategies with thousands of readers.
+            
+            <p>
+              As a founder and co-organizer of PM Hive, Kasey has built a thriving community of 
+              product managers and professionals who share insights about career development, 
+              product thinking, and modern work. Through conversations, workshops, and writing, 
+              he explores the intersection of passion, practicality, and professional growth.
             </p>
-          </Card>
-
-          <Card className="p-6 md:p-10 bg-accent/20 backdrop-blur-sm border-accent/50">
-            <h3 className="font-serif text-2xl font-bold mb-3 text-foreground">
-              Creative Work
-            </h3>
-            <p className="text-base leading-relaxed text-card-foreground mb-3">
-              Beyond product management, I'm a part-time writer and published fiction author. My works include:
+            
+            <p>
+              The DREAM framework emerged from hundreds of interviews, extensive research, and 
+              Kasey's own nonlinear career path. Having navigated multiple pivots, industry 
+              changes, and the challenges of building skills in an uncertain world, he developed 
+              a system that blends personal experience with practical strategies.
             </p>
-            <ul className="space-y-2 text-base text-card-foreground ml-4">
-              <li className="flex items-start">
-                <span className="text-primary mr-3 mt-1">•</span>
-                <span><span className="font-semibold">Darkness Me, Colorful You</span> - A YA Fantasy/Action novel</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-primary mr-3 mt-1">•</span>
-                <span><span className="font-semibold">Corruptions Are Best Exposed In The Autumn!</span> - A RomCom light novel</span>
-              </li>
-            </ul>
-          </Card>
-
-          <Card className="p-6 md:p-10 bg-card/80 backdrop-blur-sm shadow-modern border-border/50">
-            <h3 className="font-serif text-2xl font-bold mb-3 text-foreground">
-              Background
-            </h3>
-            <p className="text-base leading-relaxed text-card-foreground">
-              I graduated with a Bachelor of Science in Science and Business from the University of Waterloo, 
-              and completed numerous internships in product management before launching my career. This unique 
-              blend of technical knowledge, business acumen, creative storytelling, and hands-on experience 
-              shapes my approach to helping others navigate their professional journeys.
+            
+            <p>
+              "Doing The Dream" is his way of sharing these insights with a broader audience—helping 
+              others reduce anxiety, build confidence, and design careers they're proud of.
             </p>
-          </Card>
-
-          <div className="text-center pt-6">
-            <a 
-              href="https://kaseyfu.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-base font-semibold text-primary hover:text-primary/80 transition-colors"
-            >
-              Visit my main website
-              <ExternalLink className="w-5 h-5" />
-            </a>
+          </div>
+          
+          <div className="mt-10 pt-8 border-t border-border">
+            <p className="text-base md:text-lg text-foreground">
+              <span className="font-medium">Follow the author: </span>
+              <a
+                href="https://kaseyfu.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline inline-flex items-center gap-1"
+              >
+                kaseyfu.com
+                <ExternalLink className="h-4 w-4" />
+              </a>
+            </p>
           </div>
         </div>
       </div>
