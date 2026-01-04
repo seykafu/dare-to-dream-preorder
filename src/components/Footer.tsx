@@ -1,11 +1,6 @@
 import { ExternalLink } from "lucide-react";
 
-interface FooterProps {
-  onAboutAuthorClick: () => void;
-  onPodcastClick: () => void;
-}
-
-export const Footer = ({ onAboutAuthorClick, onPodcastClick }: FooterProps) => {
+export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -17,20 +12,6 @@ export const Footer = ({ onAboutAuthorClick, onPodcastClick }: FooterProps) => {
           </p>
           
           <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm text-muted-foreground">
-            <button
-              onClick={onAboutAuthorClick}
-              className="hover:text-primary transition-colors"
-            >
-              About the Author
-            </button>
-            <span className="hidden sm:inline">•</span>
-            <button
-              onClick={onPodcastClick}
-              className="hover:text-primary transition-colors"
-            >
-              Podcast
-            </button>
-            <span className="hidden sm:inline">•</span>
             <a
               href="https://kaseyfu.com"
               target="_blank"

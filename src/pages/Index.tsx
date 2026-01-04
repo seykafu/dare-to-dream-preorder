@@ -4,22 +4,10 @@ import { HeroSection } from "@/components/HeroSection";
 import { EmailSignup } from "@/components/EmailSignup";
 import { AboutBook } from "@/components/AboutBook";
 import { DreamFramework } from "@/components/DreamFramework";
-import { AboutAuthor } from "@/components/AboutAuthor";
-import { PodcastSection } from "@/components/PodcastSection";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
-  const aboutAuthorRef = useRef<HTMLDivElement>(null);
-  const podcastRef = useRef<HTMLDivElement>(null);
   const preOrderRef = useRef<HTMLDivElement>(null);
-
-  const scrollToAboutAuthor = () => {
-    aboutAuthorRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const scrollToPodcast = () => {
-    podcastRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
 
   const scrollToPreOrder = () => {
     preOrderRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -28,15 +16,12 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header
-        onAboutAuthorClick={scrollToAboutAuthor}
-        onPodcastClick={scrollToPodcast}
         onPreOrderClick={scrollToPreOrder}
       />
       
       <main className="flex-1">
         <HeroSection
           onPreOrderClick={scrollToPreOrder}
-          onPodcastClick={scrollToPodcast}
         />
         
         <div ref={preOrderRef}>
@@ -47,16 +32,8 @@ const Index = () => {
         
         <DreamFramework />
         
-        <div ref={aboutAuthorRef}>
-          <AboutAuthor />
-        </div>
-        
-        <div ref={podcastRef}>
-          <PodcastSection />
-        </div>
-        
         {/* Second CTA Section */}
-        <section className="py-16 md:py-24 bg-background">
+        <section className="py-16 md:py-24 bg-background hover:-translate-y-2 transition-transform duration-300">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center space-y-8">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">
@@ -71,10 +48,7 @@ const Index = () => {
         </section>
       </main>
       
-      <Footer
-        onAboutAuthorClick={scrollToAboutAuthor}
-        onPodcastClick={scrollToPodcast}
-      />
+      <Footer />
     </div>
   );
 };

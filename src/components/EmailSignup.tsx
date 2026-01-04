@@ -79,7 +79,7 @@ export const EmailSignup = ({ variant = "default" }: EmailSignupProps) => {
     <section className="py-16 md:py-24 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto">
-          <div className="bg-card border border-border rounded-lg shadow-md p-8 md:p-12">
+          <div className="bg-card border border-border rounded-lg shadow-md p-8 md:p-12 hover:-translate-y-2 hover:shadow-lg transition-all duration-300">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3 text-center">
               Get notified when pre-orders go live
             </h2>

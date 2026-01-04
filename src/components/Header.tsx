@@ -5,12 +5,10 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface HeaderProps {
-  onAboutAuthorClick: () => void;
-  onPodcastClick: () => void;
   onPreOrderClick: () => void;
 }
 
-export const Header = ({ onAboutAuthorClick, onPodcastClick, onPreOrderClick }: HeaderProps) => {
+export const Header = ({ onPreOrderClick }: HeaderProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleNavClick = (handler: () => void) => {
@@ -29,18 +27,6 @@ export const Header = ({ onAboutAuthorClick, onPodcastClick, onPreOrderClick }: 
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <button
-              onClick={onAboutAuthorClick}
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
-            >
-              About the Author
-            </button>
-            <button
-              onClick={onPodcastClick}
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
-            >
-              Podcast
-            </button>
             <Button
               onClick={onPreOrderClick}
               size="sm"
@@ -64,18 +50,6 @@ export const Header = ({ onAboutAuthorClick, onPodcastClick, onPreOrderClick }: 
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col gap-6 mt-8">
-                <button
-                  onClick={() => handleNavClick(onAboutAuthorClick)}
-                  className="text-left text-lg font-medium text-foreground hover:text-primary transition-colors"
-                >
-                  About the Author
-                </button>
-                <button
-                  onClick={() => handleNavClick(onPodcastClick)}
-                  className="text-left text-lg font-medium text-foreground hover:text-primary transition-colors"
-                >
-                  Podcast
-                </button>
                 <Button
                   onClick={() => handleNavClick(onPreOrderClick)}
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90"

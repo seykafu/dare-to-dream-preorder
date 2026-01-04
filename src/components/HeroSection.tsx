@@ -3,12 +3,11 @@ import { Sparkles } from "lucide-react";
 
 interface HeroSectionProps {
   onPreOrderClick: () => void;
-  onPodcastClick: () => void;
 }
 
-export const HeroSection = ({ onPreOrderClick, onPodcastClick }: HeroSectionProps) => {
+export const HeroSection = ({ onPreOrderClick }: HeroSectionProps) => {
   return (
-    <section id="hero" className="min-h-screen flex items-center py-20 md:py-32 bg-gradient-to-b from-background to-muted/30">
+    <section id="hero" className="min-h-screen flex items-center py-20 md:py-32 bg-gradient-to-b from-background to-muted/30 hover:-translate-y-2 transition-transform duration-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Content */}
@@ -37,14 +36,6 @@ export const HeroSection = ({ onPreOrderClick, onPodcastClick }: HeroSectionProp
                 className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg transition-all"
               >
                 Pre-Order Updates
-              </Button>
-              <Button
-                onClick={onPodcastClick}
-                size="lg"
-                variant="outline"
-                className="border-2 hover:bg-muted transition-all"
-              >
-                Listen to the Podcast
               </Button>
             </div>
           </div>

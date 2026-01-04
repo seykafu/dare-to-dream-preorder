@@ -28,7 +28,7 @@ export const DreamFramework = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-muted/20">
+    <section className="py-16 md:py-24 bg-muted/20 hover:-translate-y-2 transition-transform duration-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -43,7 +43,7 @@ export const DreamFramework = () => {
           {frameworkItems.map((item, index) => (
             <div
               key={index}
-              className="bg-card border border-border rounded-lg p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow"
+              className="bg-card border border-border rounded-lg p-6 md:p-8 shadow-sm hover:shadow-md hover:-translate-y-2 transition-all duration-300"
             >
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
