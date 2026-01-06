@@ -162,9 +162,9 @@ export function EmailUnlockCard() {
                   size="lg"
                   className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center gap-2"
                 >
-                  <a href="/bonus.pdf" download>
+                  <a href="/Doing the Dream - Sample Chapter 3.docx" download="Doing the Dream - Sample Chapter 3.docx">
                     <Download className="h-5 w-5" />
-                    Download DREAM Worksheet
+                    Download Sample Chapter
                   </a>
                 </Button>
               </motion.div>
