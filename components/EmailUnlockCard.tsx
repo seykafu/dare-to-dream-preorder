@@ -89,8 +89,7 @@ export function EmailUnlockCard() {
                   </div>
 
                   <p className="text-base md:text-lg text-muted-foreground mb-8 leading-relaxed">
-                    Join the list for launch updates + unlock a free bonus:{" "}
-                    <span className="font-semibold text-foreground">the DREAM Worksheet</span>.
+                    Join the list for launch updates + unlock Chapter 3 of the book.
                   </p>
 
                   <form onSubmit={handleSubmit} className="space-y-4">

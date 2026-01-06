@@ -230,7 +230,9 @@ export function DreamPentagon() {
                   asChild
                   className="w-full md:w-auto rounded-full bg-primary hover:bg-primary/90"
                 >
-                  <a href="#preorder">Read Sample Chapter</a>
+                  <a href="/DREAM Framework Worksheet.docx" download="DREAM Framework Worksheet.docx">
+                    Download DREAM Framework Worksheet
+                  </a>
                 </Button>
               </motion.div>
             </AnimatePresence>
