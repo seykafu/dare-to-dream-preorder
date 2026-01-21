@@ -4,13 +4,15 @@ import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, Headphones } from "lucide-react";
 import Link from "next/link";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
 import { useActiveSection } from "@/hooks/useActiveSection";
+import { PodcastPanel } from "@/components/PodcastPanel";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isPodcastOpen, setIsPodcastOpen] = useState(false);
   const progress = useScrollProgress();
   const activeSection = useActiveSection();
 
@@ -22,7 +24,6 @@ export function Header() {
     { id: "home", label: "Home", href: "#home" },
     { id: "dream", label: "DREAM", href: "#dream" },
     { id: "about", label: "About", href: "#about" },
-    { id: "podcast", label: "Podcast", href: "#podcast" },
     { id: "preorder", label: "Pre-Order", href: "#preorder" },
   ];
 
@@ -71,6 +72,23 @@ export function Header() {
                 )}
               </Link>
             ))}
+
+            {/* Podcast Button - Opens Panel */}
+            <PodcastPanel isOpen={isPodcastOpen} onOpenChange={setIsPodcastOpen}>
+              <button
+                className={`text-sm font-medium transition-colors relative py-2 inline-flex items-center gap-1.5 ${
+                  isPodcastOpen
+                    ? "text-primary"
+                    : "text-foreground/70 hover:text-foreground"
+                }`}
+              >
+                <Headphones className="w-4 h-4" />
+                Podcast
+                {isPodcastOpen && (
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full" />
+                )}
+              </button>
+            </PodcastPanel>
           </nav>
 
           {/* Mobile Menu */}
@@ -101,6 +119,17 @@ export function Header() {
                     {item.label}
                   </Link>
                 ))}
+
+                {/* Mobile Podcast Button */}
+                <PodcastPanel>
+                  <button
+                    onClick={handleNavClick}
+                    className="text-left text-lg font-medium transition-colors text-foreground hover:text-primary inline-flex items-center gap-2"
+                  >
+                    <Headphones className="w-5 h-5" />
+                    Podcast
+                  </button>
+                </PodcastPanel>
               </div>
             </SheetContent>
           </Sheet>
