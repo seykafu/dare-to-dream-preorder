@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { Sparkles, Star, BookOpen, Compass, ArrowDown } from "lucide-react";
 import CoverConcept from "@/src/assets/CoverConcept.jpeg";
 
@@ -43,7 +43,7 @@ function FloatingIcon({
 }: {
   icon: React.ElementType;
   className?: string;
-  parallaxOffset: ReturnType<typeof useTransform>;
+  parallaxOffset: MotionValue<number>;
   delay?: number;
 }) {
   return (

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, FormEvent, useRef } from "react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, MotionValue } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CheckCircle2, Download, Lock, Unlock, Mail, Gift, Zap, Star } from "lucide-react";
@@ -65,7 +65,7 @@ function FloatingIcon({
 }: {
   icon: React.ElementType;
   className?: string;
-  parallaxOffset: ReturnType<typeof useTransform>;
+  parallaxOffset: MotionValue<number>;
   delay?: number;
 }) {
   return (

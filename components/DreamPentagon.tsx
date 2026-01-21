@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, MotionValue } from "framer-motion";
 import { CheckCircle2, Sparkles, Target, TrendingUp, Flame, GitBranch, Focus, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -148,7 +148,7 @@ function FloatingBadge({
   letter: string;
   color: string;
   className?: string;
-  parallaxOffset: ReturnType<typeof useTransform>;
+  parallaxOffset: MotionValue<number>;
   delay?: number;
 }) {
   return (

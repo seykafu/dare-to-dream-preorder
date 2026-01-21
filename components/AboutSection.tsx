@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { ExternalLink, Sparkles, Quote, Users, Lightbulb, Heart } from "lucide-react";
 import Image from "next/image";
 import DoingTheDreamImage from "@/src/assets/DoingTheDreamImage.JPG";
@@ -42,7 +42,7 @@ function FloatingIcon({
 }: {
   icon: React.ElementType;
   className?: string;
-  parallaxOffset: ReturnType<typeof useTransform>;
+  parallaxOffset: MotionValue<number>;
 }) {
   return (
     <motion.div
@@ -74,7 +74,7 @@ function FloatingQuote({
   className,
 }: {
   quote: string;
-  parallaxOffset: ReturnType<typeof useTransform>;
+  parallaxOffset: MotionValue<number>;
   className?: string;
 }) {
   return (
