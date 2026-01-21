@@ -27,17 +27,31 @@ export function Header() {
     { id: "preorder", label: "Pre-Order", href: "#preorder" },
   ];
 
+  const backgroundPhrase = "Career growth professional development skill building continuous learning roadmap execution cross-functional collaboration";
+
   return (
-    <header className="sticky top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-sm">
+    <header className="sticky top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-sm overflow-hidden">
+      {/* Faded background text */}
+      <div
+        className="absolute inset-0 pointer-events-none select-none overflow-hidden"
+        style={{ opacity: 0.08 }}
+      >
+        <div className="absolute inset-0 flex items-center text-[10px] font-medium text-foreground whitespace-nowrap">
+          {[...Array(8)].map((_, i) => (
+            <span key={i} className="mx-4">{backgroundPhrase}</span>
+          ))}
+        </div>
+      </div>
+
       {/* Progress Bar */}
-      <div className="absolute top-0 left-0 right-0 h-0.5 bg-muted/50">
+      <div className="absolute top-0 left-0 right-0 h-0.5 bg-muted/50 z-10">
         <div
           className="h-full bg-gradient-to-r from-primary via-accent to-primary transition-all duration-150 ease-out origin-left"
           style={{ width: `${progress}%` }}
         />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link
