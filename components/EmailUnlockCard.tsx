@@ -374,7 +374,7 @@ export function EmailUnlockCard() {
                       transition={{ duration: 1.5, delay: i * 0.1 }}
                       style={{ left: "50%", top: "40%" }}
                     >
-                      <Star className="w-4 h-4 text-primary fill-primary/50" />
+                      <PixelStar size={16} color="hsl(var(--primary))" className="opacity-50" />
                     </motion.div>
                   ))}
 
