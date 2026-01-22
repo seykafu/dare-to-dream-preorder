@@ -128,11 +128,11 @@ export function AboutSection() {
 
       {/* Floating gradient orbs - background layer */}
       <FloatingOrb
-        className="w-[500px] h-[500px] -top-32 -left-32 bg-gradient-to-br from-primary/40 to-pink-300/30"
+        className="w-[500px] h-[500px] -top-32 -left-32 bg-gradient-to-br from-primary/40 to-violet-300/30"
         duration={25}
       />
       <FloatingOrb
-        className="w-[400px] h-[400px] top-1/4 -right-20 bg-gradient-to-br from-accent/40 to-yellow-200/30"
+        className="w-[400px] h-[400px] top-1/4 -right-20 bg-gradient-to-br from-accent/40 to-indigo-200/30"
         delay={5}
         duration={22}
       />
@@ -285,7 +285,7 @@ export function AboutSection() {
                   whileHover={{ y: -4, transition: { duration: 0.2 } }}
                   className="p-6 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10 border border-accent/20 shadow-lg"
                 >
-                  <Lightbulb className="w-6 h-6 text-yellow-600 mb-3" />
+                  <Lightbulb className="w-6 h-6 text-violet-600 mb-3" />
                   <h3 className="font-semibold text-foreground mb-2">The DREAM Framework</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     Emerged from hundreds of interviews and Kasey's own nonlinear career path

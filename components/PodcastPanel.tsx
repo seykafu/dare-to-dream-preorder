@@ -179,7 +179,7 @@ export function PodcastPanel({ children, isOpen, onOpenChange }: PodcastPanelPro
                     variant="outline"
                     className="rounded-full"
                   >
-                    <a href="#" className="inline-flex items-center gap-2">
+                    <a href="https://www.youtube.com/@PMHive" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
                       Subscribe
                     </a>
                   </Button>
@@ -233,7 +233,7 @@ export function PodcastPanel({ children, isOpen, onOpenChange }: PodcastPanelPro
               asChild
               className="w-full rounded-full bg-foreground text-background hover:bg-foreground/90"
             >
-              <a href="#">
+              <a href="https://www.youtube.com/@PMHive" target="_blank" rel="noopener noreferrer">
                 Subscribe to Podcast
               </a>
             </Button>

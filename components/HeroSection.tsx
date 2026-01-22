@@ -126,11 +126,11 @@ export function HeroSection() {
 
       {/* Floating gradient orbs - background layer */}
       <FloatingOrb
-        className="w-[600px] h-[600px] -top-40 -right-40 bg-gradient-to-br from-primary/30 to-pink-300/20"
+        className="w-[600px] h-[600px] -top-40 -right-40 bg-gradient-to-br from-primary/30 to-violet-300/20"
         duration={30}
       />
       <FloatingOrb
-        className="w-[500px] h-[500px] top-1/3 -left-40 bg-gradient-to-br from-accent/30 to-yellow-200/20"
+        className="w-[500px] h-[500px] top-1/3 -left-40 bg-gradient-to-br from-accent/30 to-indigo-200/20"
         delay={8}
         duration={25}
       />

@@ -180,11 +180,11 @@ export function EmailUnlockCard() {
 
       {/* Floating gradient orbs */}
       <FloatingOrb
-        className="w-[400px] h-[400px] -top-20 -left-20 bg-gradient-to-br from-primary/30 to-pink-300/20"
+        className="w-[400px] h-[400px] -top-20 -left-20 bg-gradient-to-br from-primary/30 to-violet-300/20"
         duration={22}
       />
       <FloatingOrb
-        className="w-[350px] h-[350px] top-1/2 -right-20 bg-gradient-to-br from-accent/30 to-yellow-200/20"
+        className="w-[350px] h-[350px] top-1/2 -right-20 bg-gradient-to-br from-accent/30 to-indigo-200/20"
         delay={6}
         duration={25}
       />

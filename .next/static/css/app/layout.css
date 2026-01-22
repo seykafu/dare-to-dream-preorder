@@ -503,47 +503,47 @@ video {
   display: none;
 }
   :root {
-    /* Beige background with gradient to white */
-    --background: 42 30% 94%; /* Light yellow-beige */
+    /* Clean light gray background */
+    --background: 0 0% 97%; /* #F8F8F8 */
     --foreground: 220 15% 20%;
 
-    --card: 42 32% 95%; /* Light yellow-beige - more visible */
+    --card: 0 0% 98%; /* Slightly lighter than background */
     --card-foreground: 220 15% 20%;
 
-    --popover: 42 32% 95%; /* Light yellow-beige - more visible */
+    --popover: 0 0% 98%;
     --popover-foreground: 220 15% 20%;
 
-    /* Primary: Light pink */
-    --primary: 340 65% 75%;
+    /* Primary: Vibrant purple #3B21DF */
+    --primary: 248 80% 50%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary: Soft yellow-beige */
-    --secondary: 42 28% 92%;
+    /* Secondary: Light purple tint */
+    --secondary: 248 30% 95%;
     --secondary-foreground: 220 15% 20%;
 
-    /* Muted: Light yellow-beige */
-    --muted: 42 30% 94%; /* Light yellow-beige - more visible */
+    /* Muted: Light gray */
+    --muted: 0 0% 94%;
     --muted-foreground: 220 10% 45%;
 
-    /* Accent: Light yellow-beige */
-    --accent: 42 28% 86%;
+    /* Accent: Light purple */
+    --accent: 248 40% 92%;
     --accent-foreground: 220 15% 20%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 220 15% 88%;
-    --input: 42 28% 96%;
-    --ring: 340 65% 75%;
+    --input: 0 0% 96%;
+    --ring: 248 80% 50%;
 
     --radius: 1rem; /* rounded-2xl base */
 
     /* Premium design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(340 65% 75%) 0%, hsl(330 60% 80%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(42 30% 92%) 0%, #FFFFFF 100%);
-    --gradient-vibrant: linear-gradient(135deg, hsl(42 28% 86%) 0%, hsl(340 65% 75%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(248 80% 50%) 0%, hsl(258 70% 60%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(0 0% 97%) 0%, #FFFFFF 100%);
+    --gradient-vibrant: linear-gradient(135deg, hsl(248 40% 92%) 0%, hsl(248 80% 50%) 100%);
     --shadow-modern: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 4px 12px -2px rgba(0, 0, 0, 0.08);
-    --shadow-hover: 0 4px 20px -4px rgba(0, 0, 0, 0.12), 0 8px 24px -6px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 4px 20px -4px rgba(59, 33, 223, 0.2), 0 8px 24px -6px rgba(0, 0, 0, 0.08);
     --nav-blur: blur(16px);
   }
 
@@ -557,7 +557,7 @@ video {
     --popover: 220 15% 12%;
     --popover-foreground: 45 10% 95%;
 
-    --primary: 340 65% 75%;
+    --primary: 248 80% 60%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 15% 18%;
@@ -566,7 +566,7 @@ video {
     --muted: 220 15% 16%;
     --muted-foreground: 45 10% 65%;
 
-    --accent: 35 20% 40%;
+    --accent: 248 30% 30%;
     --accent-foreground: 45 10% 95%;
 
     --destructive: 0 62.8% 50%;
@@ -574,13 +574,13 @@ video {
 
     --border: 220 15% 18%;
     --input: 220 15% 18%;
-    --ring: 340 65% 75%;
+    --ring: 248 80% 60%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(340 65% 75%) 0%, hsl(330 60% 80%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(248 80% 60%) 0%, hsl(258 70% 70%) 100%);
     --gradient-secondary: linear-gradient(135deg, hsl(220 20% 8%) 0%, hsl(220 15% 12%) 100%);
-    --gradient-vibrant: linear-gradient(135deg, hsl(35 20% 40%) 0%, hsl(340 65% 75%) 100%);
-    --shadow-modern: 0 8px 30px -6px hsl(340 65% 75% / 0.2);
-    --shadow-hover: 0 12px 40px -8px hsl(340 65% 75% / 0.3);
+    --gradient-vibrant: linear-gradient(135deg, hsl(248 30% 30%) 0%, hsl(248 80% 60%) 100%);
+    --shadow-modern: 0 8px 30px -6px hsl(248 80% 60% / 0.2);
+    --shadow-hover: 0 12px 40px -8px hsl(248 80% 60% / 0.3);
   }
   * {
   border-color: hsl(var(--border));
@@ -591,7 +591,7 @@ video {
   color: hsl(var(--foreground));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(135deg, hsl(42 30% 92%) 0%, #FFFFFF 100%);
+    background: linear-gradient(135deg, #F8F8F8 0%, #FFFFFF 100%);
     background-attachment: fixed;
 }
 
@@ -2179,6 +2179,18 @@ video {
 .to-yellow-200\/30 {
   --tw-gradient-to: rgb(254 240 138 / 0.3) var(--tw-gradient-to-position);
 }
+.to-violet-300\/30 {
+  --tw-gradient-to: rgb(196 181 253 / 0.3) var(--tw-gradient-to-position);
+}
+.to-violet-300\/20 {
+  --tw-gradient-to: rgb(196 181 253 / 0.2) var(--tw-gradient-to-position);
+}
+.to-indigo-200\/20 {
+  --tw-gradient-to: rgb(199 210 254 / 0.2) var(--tw-gradient-to-position);
+}
+.to-indigo-200\/30 {
+  --tw-gradient-to: rgb(199 210 254 / 0.3) var(--tw-gradient-to-position);
+}
 .fill-current {
   fill: currentColor;
 }
@@ -2590,6 +2602,10 @@ video {
 .text-yellow-600 {
   --tw-text-opacity: 1;
   color: rgb(202 138 4 / var(--tw-text-opacity, 1));
+}
+.text-violet-600 {
+  --tw-text-opacity: 1;
+  color: rgb(124 58 237 / var(--tw-text-opacity, 1));
 }
 .underline {
   text-decoration-line: underline;

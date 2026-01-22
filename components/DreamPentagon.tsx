@@ -44,7 +44,7 @@ const dreamRules: DreamRule[] = [
     description:
       "Build strong foundations: prioritize your health, create a supportive environment, establish healthy habits, and ensure basic financial stability. These fundamentals give you the energy and security to pursue meaningful work.",
     keyTakeaway: "You can't build a dream on a shaky foundation.",
-    color: "hsl(340, 65%, 75%)",
+    color: "hsl(248, 80%, 65%)",
     angle: 0,
     icon: Target,
   },
@@ -54,7 +54,7 @@ const dreamRules: DreamRule[] = [
     description:
       "Focus on skill-building as the antidote to anxiety and imposter syndrome. Invest in both horizontal skills (breadth) and vertical skills (depth) that compound over time. Continuous learning builds confidence and opens doors.",
     keyTakeaway: "Skills are the currency of career confidence.",
-    color: "hsl(330, 60%, 80%)",
+    color: "hsl(258, 70%, 72%)",
     angle: 72,
     icon: TrendingUp,
   },
@@ -64,7 +64,7 @@ const dreamRules: DreamRule[] = [
     description:
       "Discomfort is part of growth. Learn to lean into challenges instead of escaping them. The path to meaningful work involves facing difficult moments, pushing through resistance, and building resilience.",
     keyTakeaway: "Growth happens outside your comfort zone.",
-    color: "hsl(40, 25%, 85%)",
+    color: "hsl(238, 60%, 78%)",
     angle: 144,
     icon: Flame,
   },
@@ -74,7 +74,7 @@ const dreamRules: DreamRule[] = [
     description:
       "Nonlinear careers and pivots are normal. Nearby skills and paths compound. You don't need to start over—your existing experience creates adjacent opportunities that feel like natural progressions.",
     keyTakeaway: "Your next step doesn't require starting from zero.",
-    color: "hsl(340, 55%, 78%)",
+    color: "hsl(268, 65%, 75%)",
     angle: 216,
     icon: GitBranch,
   },
@@ -84,7 +84,7 @@ const dreamRules: DreamRule[] = [
     description:
       "Beat digital distraction, deepen focus, and stay present in your work. Reclaim your attention from endless scrolling and notifications. True engagement requires intentional boundaries and mindful practices.",
     keyTakeaway: "Attention is your most valuable resource.",
-    color: "hsl(330, 55%, 82%)",
+    color: "hsl(278, 55%, 78%)",
     angle: 288,
     icon: Focus,
   },
@@ -239,11 +239,11 @@ export function DreamPentagon() {
 
       {/* Floating gradient orbs */}
       <FloatingOrb
-        className="w-[500px] h-[500px] -top-32 -right-32 bg-gradient-to-br from-primary/30 to-pink-300/20"
+        className="w-[500px] h-[500px] -top-32 -right-32 bg-gradient-to-br from-primary/30 to-violet-300/20"
         duration={26}
       />
       <FloatingOrb
-        className="w-[400px] h-[400px] top-1/2 -left-32 bg-gradient-to-br from-accent/30 to-yellow-200/20"
+        className="w-[400px] h-[400px] top-1/2 -left-32 bg-gradient-to-br from-accent/30 to-indigo-200/20"
         delay={7}
         duration={24}
       />
