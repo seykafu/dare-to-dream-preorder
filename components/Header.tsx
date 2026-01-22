@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Headphones } from "lucide-react";
@@ -9,6 +8,7 @@ import Link from "next/link";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { PodcastPanel } from "@/components/PodcastPanel";
+import { PixelHeart } from "@/components/PixelElements";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,19 +53,15 @@ export function Header() {
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
+          {/* Pixel Heart Logo */}
           <Link
             href="#home"
-            className="flex items-center hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity group"
           >
-            <Image
-              src="/Logo.png"
-              alt="Doing The Dream Logo"
-              width={120}
-              height={40}
-              className="h-8 md:h-10 w-auto"
-              priority
-            />
+            <PixelHeart size={36} animated />
+            <span className="font-bold text-lg tracking-tight text-foreground group-hover:text-primary transition-colors">
+              DTD
+            </span>
           </Link>
 
           {/* Desktop Navigation */}

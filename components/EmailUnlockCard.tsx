@@ -4,7 +4,8 @@ import { useState, FormEvent, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform, MotionValue } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { CheckCircle2, Download, Lock, Unlock, Mail, Gift, Zap, Star } from "lucide-react";
+import { CheckCircle2, Download, Lock, Unlock, Mail, Gift, Zap } from "lucide-react";
+import { PixelStar, PixelSparkle, PixelHeart, FloatingPixel } from "@/components/PixelElements";
 
 declare global {
   interface Window {
@@ -92,33 +93,6 @@ function FloatingIcon({
   );
 }
 
-// Floating particle
-function FloatingParticle({
-  className,
-  delay = 0,
-}: {
-  className?: string;
-  delay?: number;
-}) {
-  return (
-    <motion.div
-      className={`absolute pointer-events-none ${className}`}
-      animate={{
-        y: [0, -20, 0],
-        opacity: [0.2, 0.5, 0.2],
-        scale: [0.8, 1.2, 0.8],
-      }}
-      transition={{
-        duration: 5,
-        repeat: Infinity,
-        ease: "easeInOut",
-        delay,
-      }}
-    >
-      <Star className="w-3 h-3 text-primary/30 fill-primary/10" />
-    </motion.div>
-  );
-}
 
 export function EmailUnlockCard() {
   const [email, setEmail] = useState("");
@@ -180,25 +154,33 @@ export function EmailUnlockCard() {
 
       {/* Floating gradient orbs */}
       <FloatingOrb
-        className="w-[400px] h-[400px] -top-20 -left-20 bg-gradient-to-br from-primary/30 to-violet-300/20"
+        className="w-[400px] h-[400px] -top-20 -left-20 bg-gradient-to-br from-violet-500/25 to-purple-400/15"
         duration={22}
       />
       <FloatingOrb
-        className="w-[350px] h-[350px] top-1/2 -right-20 bg-gradient-to-br from-accent/30 to-indigo-200/20"
+        className="w-[350px] h-[350px] top-1/2 -right-20 bg-gradient-to-br from-indigo-400/25 to-fuchsia-300/15"
         delay={6}
         duration={25}
       />
       <FloatingOrb
-        className="w-[300px] h-[300px] -bottom-20 left-1/3 bg-gradient-to-br from-secondary/40 to-primary/15"
+        className="w-[300px] h-[300px] -bottom-20 left-1/3 bg-gradient-to-br from-purple-400/30 to-indigo-500/15"
         delay={12}
         duration={28}
       />
 
-      {/* Floating particles */}
-      <FloatingParticle className="top-[20%] left-[15%]" delay={0} />
-      <FloatingParticle className="top-[30%] right-[20%]" delay={1.5} />
-      <FloatingParticle className="bottom-[25%] left-[10%]" delay={3} />
-      <FloatingParticle className="bottom-[35%] right-[15%]" delay={4.5} />
+      {/* Floating pixel decorations */}
+      <FloatingPixel className="top-[20%] left-[15%]" delay={0} duration={5}>
+        <PixelStar size={16} color="hsl(248, 80%, 50%)" className="opacity-45" />
+      </FloatingPixel>
+      <FloatingPixel className="top-[30%] right-[20%]" delay={1.5} duration={6}>
+        <PixelHeart size={14} className="opacity-40" />
+      </FloatingPixel>
+      <FloatingPixel className="bottom-[25%] left-[10%]" delay={3} duration={4}>
+        <PixelSparkle size={12} color="hsl(268, 70%, 55%)" className="opacity-50" />
+      </FloatingPixel>
+      <FloatingPixel className="bottom-[35%] right-[15%]" delay={2} duration={5}>
+        <PixelStar size={14} color="hsl(280, 70%, 55%)" className="opacity-40" />
+      </FloatingPixel>
 
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
         {/* Floating icons */}

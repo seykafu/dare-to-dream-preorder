@@ -3,8 +3,9 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
-import { Sparkles, Star, BookOpen, Compass, ArrowDown } from "lucide-react";
+import { Sparkles, BookOpen, Compass, ArrowDown } from "lucide-react";
 import CoverConcept from "@/src/assets/CoverConcept.jpeg";
+import { PixelStar, PixelSparkle, PixelHeart, FloatingPixel } from "@/components/PixelElements";
 
 // Floating decorative orb component
 function FloatingOrb({
@@ -68,36 +69,6 @@ function FloatingIcon({
   );
 }
 
-// Floating star decoration
-function FloatingStar({
-  className,
-  delay = 0,
-  size = "w-4 h-4",
-}: {
-  className?: string;
-  delay?: number;
-  size?: string;
-}) {
-  return (
-    <motion.div
-      className={`absolute pointer-events-none ${className}`}
-      initial={{ opacity: 0, scale: 0 }}
-      animate={{
-        opacity: [0.3, 0.7, 0.3],
-        scale: [0.8, 1.2, 0.8],
-        rotate: [0, 180, 360],
-      }}
-      transition={{
-        duration: 8,
-        repeat: Infinity,
-        ease: "easeInOut",
-        delay,
-      }}
-    >
-      <Star className={`${size} text-primary/40 fill-primary/20`} />
-    </motion.div>
-  );
-}
 
 export function HeroSection() {
   const containerRef = useRef<HTMLElement>(null);
@@ -124,28 +95,41 @@ export function HeroSection() {
       {/* Layered gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/10 to-background" />
 
-      {/* Floating gradient orbs - background layer */}
+      {/* Floating gradient orbs - retro deeper tones */}
       <FloatingOrb
-        className="w-[600px] h-[600px] -top-40 -right-40 bg-gradient-to-br from-primary/30 to-violet-300/20"
+        className="w-[600px] h-[600px] -top-40 -right-40 bg-gradient-to-br from-violet-500/25 to-purple-400/15"
         duration={30}
       />
       <FloatingOrb
-        className="w-[500px] h-[500px] top-1/3 -left-40 bg-gradient-to-br from-accent/30 to-indigo-200/20"
+        className="w-[500px] h-[500px] top-1/3 -left-40 bg-gradient-to-br from-indigo-400/25 to-fuchsia-300/15"
         delay={8}
         duration={25}
       />
       <FloatingOrb
-        className="w-[400px] h-[400px] bottom-0 right-1/4 bg-gradient-to-br from-secondary/40 to-primary/10"
+        className="w-[400px] h-[400px] bottom-0 right-1/4 bg-gradient-to-br from-purple-400/30 to-indigo-500/15"
         delay={15}
         duration={28}
       />
 
-      {/* Floating stars scattered around */}
-      <FloatingStar className="top-[15%] left-[10%]" delay={0} />
-      <FloatingStar className="top-[25%] right-[15%]" delay={2} size="w-5 h-5" />
-      <FloatingStar className="top-[60%] left-[5%]" delay={4} size="w-3 h-3" />
-      <FloatingStar className="bottom-[30%] right-[8%]" delay={6} />
-      <FloatingStar className="top-[40%] left-[20%]" delay={3} size="w-3 h-3" />
+      {/* Floating pixel decorations - retro style */}
+      <FloatingPixel className="top-[15%] left-[10%]" delay={0} duration={5}>
+        <PixelStar size={20} color="hsl(248, 80%, 50%)" className="opacity-50" />
+      </FloatingPixel>
+      <FloatingPixel className="top-[25%] right-[15%]" delay={1.5} duration={6}>
+        <PixelSparkle size={16} color="hsl(268, 70%, 55%)" className="opacity-60" />
+      </FloatingPixel>
+      <FloatingPixel className="top-[60%] left-[5%]" delay={3} duration={4}>
+        <PixelHeart size={18} className="opacity-40" />
+      </FloatingPixel>
+      <FloatingPixel className="bottom-[30%] right-[8%]" delay={2} duration={5}>
+        <PixelStar size={14} color="hsl(280, 70%, 55%)" className="opacity-50" />
+      </FloatingPixel>
+      <FloatingPixel className="top-[40%] left-[20%]" delay={4} duration={6}>
+        <PixelSparkle size={12} color="hsl(258, 70%, 60%)" className="opacity-40" />
+      </FloatingPixel>
+      <FloatingPixel className="bottom-[45%] right-[25%]" delay={2.5} duration={5}>
+        <PixelHeart size={14} className="opacity-35" />
+      </FloatingPixel>
 
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
         {/* Floating icons */}
@@ -303,12 +287,16 @@ export function HeroSection() {
                   />
                 </div>
 
-                {/* Floating "Pre-order" badge */}
+                {/* Floating "Pre-order" badge - pixel style */}
                 <motion.div
-                  animate={{ y: [0, -6, 0], rotate: [-2, 2, -2] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -top-4 -right-4 px-4 py-2 rounded-xl bg-gradient-to-r from-primary to-primary/80 text-primary-foreground text-sm font-bold shadow-lg"
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -top-4 -right-4 flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-primary to-purple-500 text-primary-foreground text-xs font-bold shadow-lg"
+                  style={{
+                    clipPath: "polygon(4px 0, calc(100% - 4px) 0, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px), 0 4px)",
+                  }}
                 >
+                  <PixelHeart size={14} />
                   Pre-order Now
                 </motion.div>
 

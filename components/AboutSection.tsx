@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { ExternalLink, Sparkles, Quote, Users, Lightbulb, Heart } from "lucide-react";
 import Image from "next/image";
 import DoingTheDreamImage from "@/src/assets/DoingTheDreamImage.JPG";
+import { PixelStar, PixelSparkle, PixelHeart, FloatingPixel } from "@/components/PixelElements";
 
 // Floating decorative orb component
 function FloatingOrb({
@@ -128,16 +129,16 @@ export function AboutSection() {
 
       {/* Floating gradient orbs - background layer */}
       <FloatingOrb
-        className="w-[500px] h-[500px] -top-32 -left-32 bg-gradient-to-br from-primary/40 to-violet-300/30"
+        className="w-[500px] h-[500px] -top-32 -left-32 bg-gradient-to-br from-violet-500/30 to-purple-400/20"
         duration={25}
       />
       <FloatingOrb
-        className="w-[400px] h-[400px] top-1/4 -right-20 bg-gradient-to-br from-accent/40 to-indigo-200/30"
+        className="w-[400px] h-[400px] top-1/4 -right-20 bg-gradient-to-br from-indigo-400/30 to-fuchsia-300/20"
         delay={5}
         duration={22}
       />
       <FloatingOrb
-        className="w-[300px] h-[300px] bottom-20 left-1/4 bg-gradient-to-br from-secondary/50 to-primary/20"
+        className="w-[300px] h-[300px] bottom-20 left-1/4 bg-gradient-to-br from-purple-400/35 to-indigo-500/20"
         delay={10}
         duration={28}
       />
@@ -179,6 +180,17 @@ export function AboutSection() {
             parallaxOffset={y3}
             className="hidden md:block bottom-1/4 left-[8%]"
           />
+
+          {/* Floating pixel decorations */}
+          <FloatingPixel className="hidden md:block top-[10%] right-[12%]" delay={0} duration={5}>
+            <PixelHeart size={16} className="opacity-40" />
+          </FloatingPixel>
+          <FloatingPixel className="hidden md:block bottom-[15%] right-[5%]" delay={2} duration={6}>
+            <PixelStar size={18} color="hsl(268, 70%, 55%)" className="opacity-45" />
+          </FloatingPixel>
+          <FloatingPixel className="hidden md:block top-[50%] left-[3%]" delay={3.5} duration={4}>
+            <PixelSparkle size={14} color="hsl(248, 80%, 50%)" className="opacity-50" />
+          </FloatingPixel>
 
           {/* Floating quotes */}
           <FloatingQuote

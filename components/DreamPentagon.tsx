@@ -2,8 +2,9 @@
 
 import { useState, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform, MotionValue } from "framer-motion";
-import { CheckCircle2, Sparkles, Target, TrendingUp, Flame, GitBranch, Focus, Star } from "lucide-react";
+import { CheckCircle2, Sparkles, Target, TrendingUp, Flame, GitBranch, Focus } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PixelStar, PixelSparkle, PixelHeart, FloatingPixel } from "@/components/PixelElements";
 
 declare global {
   interface Window {
@@ -176,35 +177,6 @@ function FloatingBadge({
   );
 }
 
-// Floating star decoration
-function FloatingStar({
-  className,
-  delay = 0,
-  size = "w-4 h-4",
-}: {
-  className?: string;
-  delay?: number;
-  size?: string;
-}) {
-  return (
-    <motion.div
-      className={`absolute pointer-events-none ${className}`}
-      animate={{
-        opacity: [0.2, 0.5, 0.2],
-        scale: [0.8, 1.2, 0.8],
-        rotate: [0, 180, 360],
-      }}
-      transition={{
-        duration: 8,
-        repeat: Infinity,
-        ease: "easeInOut",
-        delay,
-      }}
-    >
-      <Star className={`${size} text-primary/30 fill-primary/10`} />
-    </motion.div>
-  );
-}
 
 export function DreamPentagon() {
   const [selectedRule, setSelectedRule] = useState(1); // Default to "R"
@@ -239,25 +211,33 @@ export function DreamPentagon() {
 
       {/* Floating gradient orbs */}
       <FloatingOrb
-        className="w-[500px] h-[500px] -top-32 -right-32 bg-gradient-to-br from-primary/30 to-violet-300/20"
+        className="w-[500px] h-[500px] -top-32 -right-32 bg-gradient-to-br from-violet-500/25 to-purple-400/15"
         duration={26}
       />
       <FloatingOrb
-        className="w-[400px] h-[400px] top-1/2 -left-32 bg-gradient-to-br from-accent/30 to-indigo-200/20"
+        className="w-[400px] h-[400px] top-1/2 -left-32 bg-gradient-to-br from-indigo-400/25 to-fuchsia-300/15"
         delay={7}
         duration={24}
       />
       <FloatingOrb
-        className="w-[350px] h-[350px] -bottom-20 right-1/4 bg-gradient-to-br from-secondary/40 to-primary/15"
+        className="w-[350px] h-[350px] -bottom-20 right-1/4 bg-gradient-to-br from-purple-400/30 to-indigo-500/15"
         delay={14}
         duration={28}
       />
 
-      {/* Floating stars */}
-      <FloatingStar className="top-[10%] left-[15%]" delay={0} />
-      <FloatingStar className="top-[20%] right-[10%]" delay={2} size="w-5 h-5" />
-      <FloatingStar className="bottom-[20%] left-[8%]" delay={4} size="w-3 h-3" />
-      <FloatingStar className="top-[60%] right-[12%]" delay={6} />
+      {/* Floating pixel decorations */}
+      <FloatingPixel className="top-[10%] left-[15%]" delay={0} duration={5}>
+        <PixelStar size={18} color="hsl(248, 80%, 50%)" className="opacity-45" />
+      </FloatingPixel>
+      <FloatingPixel className="top-[20%] right-[10%]" delay={1.5} duration={6}>
+        <PixelHeart size={16} className="opacity-40" />
+      </FloatingPixel>
+      <FloatingPixel className="bottom-[20%] left-[8%]" delay={3} duration={4}>
+        <PixelSparkle size={14} color="hsl(268, 70%, 55%)" className="opacity-50" />
+      </FloatingPixel>
+      <FloatingPixel className="top-[60%] right-[12%]" delay={2} duration={5}>
+        <PixelStar size={12} color="hsl(280, 70%, 55%)" className="opacity-40" />
+      </FloatingPixel>
 
       {/* Floating letter badges */}
       <FloatingBadge
