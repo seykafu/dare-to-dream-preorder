@@ -203,7 +203,16 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-xl"
+              className="text-xl md:text-2xl font-medium text-foreground leading-relaxed max-w-xl"
+            >
+              Eliminate all career anxiety, obtain job freedom, and never question yourself again.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl"
             >
               Pre-order the new book "Doing The Dream" and join the newsletter for exclusive insights.
             </motion.p>
