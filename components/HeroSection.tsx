@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { Sparkles, BookOpen, Compass, ArrowDown } from "lucide-react";
-import CoverConcept from "@/src/assets/CoverConcept.jpeg";
+import CoverConcept from "@/src/assets/BCC.jpeg";
 import { PixelStar, PixelSparkle, PixelHeart, FloatingPixel } from "@/components/PixelElements";
 
 // Floating decorative orb component

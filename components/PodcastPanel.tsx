@@ -13,26 +13,19 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 
-const FEATURED_VIDEO_ID = "kBEZqjywkJg";
+const FEATURED_VIDEO_ID = "ddhEG5VsAao";
 
 interface Episode {
   title: string;
   description: string;
-  videoId?: string;
+  videoId: string;
 }
 
 const episodes: Episode[] = [
   {
-    title: "Understanding Career Anxiety",
-    description: "Exploring the root causes of career anxiety and how to navigate uncertainty with confidence.",
-  },
-  {
-    title: "Building Skills That Compound",
-    description: "A deep dive into horizontal and vertical skill-building strategies for long-term growth.",
-  },
-  {
-    title: "Reclaiming Your Attention",
-    description: "Practical strategies to beat digital distraction and deepen focus in your work.",
+    title: "Career Anxiety & The DREAM Framework",
+    description: "A deep dive into understanding career anxiety and how the DREAM framework can help you navigate uncertainty with confidence.",
+    videoId: "kBEZqjywkJg",
   },
 ];
 
@@ -151,11 +144,10 @@ export function PodcastPanel({ children, isOpen, onOpenChange }: PodcastPanelPro
 
               <div className="p-5">
                 <h3 className="text-lg font-bold text-foreground mb-2">
-                  Career Anxiety & The DREAM Framework
+                  Latest Episode
                 </h3>
                 <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                  A deep dive into understanding career anxiety and how the DREAM framework
-                  can help you navigate uncertainty with confidence.
+                  Watch the newest episode from the Doing The Dream podcast.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Button
@@ -191,12 +183,15 @@ export function PodcastPanel({ children, isOpen, onOpenChange }: PodcastPanelPro
           {/* More Episodes */}
           <div>
             <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">
-              More Episodes
+              Watch More
             </h4>
             <div className="space-y-3">
               {episodes.map((episode, index) => (
-                <motion.div
+                <motion.a
                   key={index}
+                  href={`https://www.youtube.com/watch?v=${episode.videoId}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 + index * 0.1 }}
@@ -214,7 +209,8 @@ export function PodcastPanel({ children, isOpen, onOpenChange }: PodcastPanelPro
                       {episode.description}
                     </p>
                   </div>
-                </motion.div>
+                  <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0 mt-1" />
+                </motion.a>
               ))}
             </div>
           </div>
