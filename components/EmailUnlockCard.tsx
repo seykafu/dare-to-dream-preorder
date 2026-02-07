@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CheckCircle2, Download, Lock, Unlock, Mail, Gift, Zap } from "lucide-react";
 import { PixelStar, PixelSparkle, PixelHeart, FloatingPixel } from "@/components/PixelElements";
+import { supabase } from "@/lib/supabase/client";
 
 declare global {
   interface Window {
@@ -132,15 +133,34 @@ export function EmailUnlockCard() {
       return;
     }
 
-    // Simulate unlock animation
+    // Start unlock animation
     setIsUnlocking(true);
 
-    // After animation, show success
-    setTimeout(() => {
+    try {
+      const { error: supabaseError } = await supabase
+        .from('preorder_emails')
+        .insert([{ email: email.trim() }]);
+
+      if (supabaseError) {
+        setIsUnlocking(false);
+        if (supabaseError.code === '23505') {
+          setError("This email is already registered");
+        } else {
+          setError("Something went wrong. Please try again.");
+        }
+        return;
+      }
+
+      // Success - complete the animation and show success state
+      setTimeout(() => {
+        setIsUnlocking(false);
+        setIsSubmitted(true);
+        setEmail("");
+      }, 1000);
+    } catch (err) {
       setIsUnlocking(false);
-      setIsSubmitted(true);
-      setEmail("");
-    }, 1500);
+      setError("Something went wrong. Please try again.");
+    }
   };
 
   return (

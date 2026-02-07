@@ -260,13 +260,10 @@ export function AboutSection() {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative p-8 rounded-3xl bg-gradient-to-br from-background/80 to-background/60 backdrop-blur-sm border border-primary/10 shadow-xl">
                   <p className="text-lg md:text-xl text-foreground leading-relaxed mb-4">
-                    Kasey is a <span className="text-primary font-semibold">product manager</span>,{" "}
-                    <span className="text-primary font-semibold">community builder</span>, and{" "}
-                    <span className="text-primary font-semibold">writer</span>.
+                    Kasey is the co-founder of <span className="text-primary font-semibold">PM Hive</span>, a tech community in Vancouver with over 3000 members. He is also a <span className="text-primary font-semibold">fiction author</span>, <span className="text-primary font-semibold">podcast host</span>, and a senior product leader in tech.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    He works with Gen Z and millennial professionals navigating career anxiety
-                    and uncertainty, helping them find clarity and build meaningful paths forward.
+                    He worked with countless Gen Z and millennial professionals on navigating career anxiety and uncertainty, and has interviewed over 30 career professionals on their career decisions. He loves mentoring and supporting others who are discovering their own career paths.
                   </p>
                 </div>
               </motion.div>
