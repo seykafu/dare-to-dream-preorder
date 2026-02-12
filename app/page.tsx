@@ -2,7 +2,6 @@ import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { DreamPentagon } from "@/components/DreamPentagon";
 import { AboutSection } from "@/components/AboutSection";
-import { EmailUnlockCard } from "@/components/EmailUnlockCard";
 import { Footer } from "@/components/Footer";
 import { StickyJoinPill } from "@/components/StickyJoinPill";
 import { BackgroundText } from "@/components/BackgroundText";
@@ -17,7 +16,6 @@ export default function Home() {
 
       <main className="flex-1 relative z-10">
         <HeroSection />
-        <EmailUnlockCard />
         <DreamPentagon />
         <AboutSection />
       </main>
