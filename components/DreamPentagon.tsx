@@ -83,8 +83,8 @@ const dreamRules: DreamRule[] = [
     letter: "M",
     title: "Make Yourself Engaged",
     description:
-      "Beat digital distraction, deepen focus, and stay present in your work. Reclaim your attention from endless scrolling and notifications. True engagement requires intentional boundaries and mindful practices.",
-    keyTakeaway: "Attention is your most valuable resource.",
+      "Engage deeply with your communities and seek out mentorships—they're powerful antidotes to imposter syndrome. Share your experiences openly, build in public, and connect with others on similar journeys. Growth accelerates when you surround yourself with people who support and challenge you.",
+    keyTakeaway: "Community and mentorship multiply your growth.",
     color: "hsl(278, 55%, 78%)",
     angle: 288,
     icon: Focus,
