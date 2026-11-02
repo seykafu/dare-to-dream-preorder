@@ -2,42 +2,31 @@
 
 import { useEffect, useState } from "react";
 
-const sections = ["home", "dream", "about", "podcast", "preorder"];
+const sections = ["top", "book", "framework", "author", "podcast", "preorder"];
 
+/** Id of the section under the reading line (20% down the viewport); null while in the hero. */
 export function useActiveSection() {
-  const [activeSection, setActiveSection] = useState("home");
+  const [activeSection, setActiveSection] = useState<string | null>(null);
 
   useEffect(() => {
-    const observers: IntersectionObserver[] = [];
-    const sectionElements: { [key: string]: HTMLElement | null } = {};
-
-    sections.forEach((sectionId) => {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        sectionElements[sectionId] = element;
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                setActiveSection(sectionId);
-              }
-            });
-          },
-          {
-            rootMargin: "-20% 0px -70% 0px",
-            threshold: 0,
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id === "top" ? null : entry.target.id);
           }
-        );
-        observer.observe(element);
-        observers.push(observer);
-      }
+        });
+      },
+      { rootMargin: "-20% 0px -79% 0px", threshold: 0 },
+    );
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
     });
 
-    return () => {
-      observers.forEach((observer) => observer.disconnect());
-    };
+    return () => observer.disconnect();
   }, []);
 
   return activeSection;
 }
-

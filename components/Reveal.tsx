@@ -1,85 +1,53 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 interface RevealProps {
   children: React.ReactNode;
-  direction?: "left" | "right" | "up";
   delay?: number;
   className?: string;
+  as?: "div" | "li";
 }
 
-export function Reveal({
-  children,
-  direction = "up",
-  delay = 0,
-  className = "",
-}: RevealProps) {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-  const prefersReducedMotion = useReducedMotion();
+/**
+ * Fades content up as it scrolls into view. Content is visible in the server
+ * HTML; it is only hidden once JS confirms it starts below the fold, so
+ * nothing flashes and nothing is lost if scripts fail.
+ */
+export function Reveal({ children, delay = 0, className, as: Tag = "div" }: RevealProps) {
+  const ref = useRef<HTMLElement>(null);
+  const [phase, setPhase] = useState<"idle" | "armed" | "in">("idle");
 
   useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    let first = true;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          setPhase((p) => (p === "armed" ? "in" : p));
+          observer.disconnect();
+        } else if (first) {
+          setPhase("armed");
         }
+        first = false;
       },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -100px 0px",
-      }
+      { rootMargin: "0px 0px -8% 0px" },
     );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
-  const variants = {
-    hidden: {
-      opacity: prefersReducedMotion ? 1 : 0,
-      x: prefersReducedMotion
-        ? 0
-        : direction === "left"
-        ? -24
-        : direction === "right"
-        ? 24
-        : 0,
-      y: prefersReducedMotion ? 0 : direction === "up" ? 16 : 0,
-      filter: prefersReducedMotion ? "blur(0px)" : "blur(4px)",
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      filter: "blur(0px)",
-      transition: {
-        duration: 0.6,
-        delay,
-        ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-      },
-    },
-  };
-
   return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={isVisible ? "visible" : "hidden"}
-      variants={variants}
+    <Tag
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ref={ref as any}
+      data-reveal={phase === "idle" ? undefined : phase}
+      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
       className={className}
     >
       {children}
-    </motion.div>
+    </Tag>
   );
 }
-
