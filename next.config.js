@@ -2,11 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    unoptimized: false,
+    // YouTube thumbnails for the podcast section.
+    remotePatterns: [{ protocol: 'https', hostname: 'i.ytimg.com', pathname: '/vi/**' }],
   },
   // Exclude old React Router pages from build
   pageExtensions: ['tsx', 'ts', 'jsx', 'js'],
-  webpack: (config, { isServer }) => {
+  webpack: (config) => {
     // Ignore src/pages directory
     config.watchOptions = {
       ...config.watchOptions,
@@ -17,4 +18,3 @@ const nextConfig = {
 };
 
 export default nextConfig;
-

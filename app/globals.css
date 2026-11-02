@@ -2,88 +2,94 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Premium Modern Design System */
+/*
+ * Doing The Dream — "résumé page" design system.
+ * Every colour comes from the book cover: pale paper (#E2EAF7), the cover's
+ * ultramarine (#2B2BE5) and the faint résumé copy the title breaks out of.
+ */
 
 @layer base {
   :root {
-    /* Retro-inspired darker background */
-    --background: 240 15% 92%; /* Soft cool gray with purple tint */
-    --foreground: 240 20% 15%;
+    color-scheme: light;
 
-    --card: 240 12% 95%; /* Slightly lighter with purple undertone */
-    --card-foreground: 240 20% 15%;
+    --background: 217 57% 93%; /* paper */
+    --foreground: 237 57% 15%; /* ink */
 
-    --popover: 240 12% 95%;
-    --popover-foreground: 240 20% 15%;
+    --card: 220 70% 97%; /* raised paper */
+    --card-foreground: 237 57% 15%;
+    --popover: 220 70% 97%;
+    --popover-foreground: 237 57% 15%;
 
-    /* Primary: Vibrant purple #3B21DF */
-    --primary: 248 80% 50%;
+    --primary: 240 78% 53%; /* cover blue */
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary: Deeper purple tint */
-    --secondary: 248 25% 88%;
-    --secondary-foreground: 240 20% 15%;
+    --secondary: 219 45% 88%;
+    --secondary-foreground: 237 57% 15%;
+    --muted: 219 45% 88%;
+    --muted-foreground: 231 24% 33%;
+    --accent: 219 45% 88%;
+    --accent-foreground: 237 57% 15%;
 
-    /* Muted: Cool gray with purple */
-    --muted: 240 12% 88%;
-    --muted-foreground: 240 15% 40%;
-
-    /* Accent: Warmer retro purple */
-    --accent: 258 35% 85%;
-    --accent-foreground: 240 20% 15%;
-
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 356 66% 42%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 15% 82%;
-    --input: 240 12% 94%;
-    --ring: 248 80% 50%;
+    --border: 222 30% 80%;
+    --input: 226 22% 58%;
+    --ring: 240 78% 53%;
 
-    --radius: 1rem; /* rounded-2xl base */
+    /* Decorative résumé text (never carries meaning, always aria-hidden). */
+    --filler: 219 36% 84%;
 
-    /* Retro-inspired design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(248 80% 50%) 0%, hsl(280 70% 55%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(240 15% 92%) 0%, hsl(260 20% 88%) 100%);
-    --gradient-vibrant: linear-gradient(135deg, hsl(258 35% 85%) 0%, hsl(248 80% 50%) 100%);
-    --shadow-modern: 0 1px 3px 0 rgba(30, 20, 60, 0.08), 0 4px 12px -2px rgba(30, 20, 60, 0.12);
-    --shadow-hover: 0 4px 20px -4px rgba(59, 33, 223, 0.25), 0 8px 24px -6px rgba(30, 20, 60, 0.15);
-    --nav-blur: blur(16px);
+    /* Inverted closing section. */
+    --cta: 240 78% 53%;
+    --cta-foreground: 0 0% 100%;
+    --cta-filler: 240 70% 61%;
+
+    /* Two-ink "riso" treatment for photos: shadows → highlights. */
+    --duo-shadow: 240 78% 53%;
+    --duo-highlight: 217 57% 93%;
+
+    --radius: 0.375rem;
   }
 
-  .dark {
-    --background: 250 25% 8%;
-    --foreground: 45 10% 95%;
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
 
-    --card: 250 20% 12%;
-    --card-foreground: 45 10% 95%;
+      --background: 234 53% 8%;
+      --foreground: 217 57% 93%;
 
-    --popover: 250 20% 12%;
-    --popover-foreground: 45 10% 95%;
+      --card: 235 45% 12%;
+      --card-foreground: 217 57% 93%;
+      --popover: 235 45% 12%;
+      --popover-foreground: 217 57% 93%;
 
-    --primary: 248 80% 65%;
-    --primary-foreground: 0 0% 100%;
+      --primary: 240 100% 77%;
+      --primary-foreground: 234 53% 8%;
 
-    --secondary: 250 20% 18%;
-    --secondary-foreground: 45 10% 95%;
+      --secondary: 235 40% 16%;
+      --secondary-foreground: 217 57% 93%;
+      --muted: 235 40% 16%;
+      --muted-foreground: 225 30% 73%;
+      --accent: 235 40% 16%;
+      --accent-foreground: 217 57% 93%;
 
-    --muted: 250 18% 16%;
-    --muted-foreground: 45 10% 65%;
+      --destructive: 356 90% 74%;
+      --destructive-foreground: 234 53% 8%;
 
-    --accent: 258 35% 35%;
-    --accent-foreground: 45 10% 95%;
+      --border: 234 32% 22%;
+      --input: 230 22% 47%;
+      --ring: 240 100% 77%;
 
-    --destructive: 0 62.8% 50%;
-    --destructive-foreground: 0 0% 100%;
+      --filler: 234 40% 17%;
 
-    --border: 250 18% 20%;
-    --input: 250 18% 18%;
-    --ring: 248 80% 65%;
+      --cta: 240 66% 38%;
+      --cta-foreground: 217 57% 96%;
+      --cta-filler: 240 56% 47%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(248 80% 65%) 0%, hsl(280 70% 60%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(250 25% 8%) 0%, hsl(260 20% 12%) 100%);
-    --gradient-vibrant: linear-gradient(135deg, hsl(258 35% 35%) 0%, hsl(248 80% 65%) 100%);
-    --shadow-modern: 0 8px 30px -6px hsl(248 80% 65% / 0.25);
-    --shadow-hover: 0 12px 40px -8px hsl(248 80% 65% / 0.35);
+      --duo-shadow: 234 53% 8%;
+      --duo-highlight: 240 100% 82%;
+    }
   }
 }
 
@@ -92,82 +98,447 @@
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground antialiased;
-    background:
-      linear-gradient(
-        145deg,
-        hsl(240 15% 92%) 0%,
-        hsl(255 18% 88%) 35%,
-        hsl(265 20% 85%) 65%,
-        hsl(275 22% 82%) 100%
-      );
-    background-attachment: fixed;
-  }
-
-  /* Retro grain texture overlay */
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1000;
-    opacity: 0.035;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  }
-
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
-  /* Typography scale */
-  h1 {
-    @apply text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight;
-    letter-spacing: -0.02em;
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    text-rendering: optimizeLegibility;
   }
 
-  h2 {
-    @apply text-4xl md:text-5xl font-bold tracking-tight;
+  ::selection {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 3px;
+  }
+
+  section[id] {
+    scroll-margin-top: 4.5rem;
+  }
+}
+
+@layer components {
+  /* Small mono label that sits above headings, like a résumé section marker. */
+  .eyebrow {
+    @apply font-mono text-[0.72rem] font-medium uppercase tracking-[0.16em] text-primary;
+  }
+
+  .display {
+    @apply font-sans font-bold tracking-[-0.035em];
+    line-height: 0.98;
+  }
+
+  /* Text-link with a drawn underline. */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 100% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease;
+  }
+  .link-underline:hover {
+    background-size: 0% 1px;
+    background-position: 100% 100%;
+  }
+
+  /* ───────────── Hero: the living book cover ─────────────
+   * Filler copy is injected with ::before from data-t so it never becomes
+   * page text (not read aloud, not indexed); only the big words are real.  */
+  .field {
+    --fs: clamp(0.875rem, 0.55rem + 1.1vw, 1.65rem);
+    --ws: clamp(3.25rem, 16vw, 6.5rem);
+    --lh: 1.32;
+    font-size: var(--fs);
+    line-height: var(--lh);
+    color: hsl(var(--filler));
+  }
+  @media (min-width: 1024px) {
+    .field {
+      --ws: clamp(5rem, 8.4vw, 9.4rem);
+    }
+  }
+
+  .fill,
+  .fill-line {
+    display: block;
+    overflow: clip;
+    text-align: justify;
+    hyphens: none;
+    user-select: none;
+    animation: fade-in 0.9s ease-out both;
+  }
+  .fill::before,
+  .fill-line::before {
+    content: attr(data-t);
+  }
+  .fill {
+    --n: var(--l, 1);
+    height: calc(var(--n) * var(--lh) * 1em);
+  }
+  @media (min-width: 1024px) {
+    .fill {
+      --n: var(--l-lg, var(--l, 1));
+    }
+  }
+  .fill-line {
+    height: calc(var(--lh) * 1em);
+    min-width: 0;
+  }
+
+  .field-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4em;
+  }
+  .field-row > .lead {
+    flex: 0 0 var(--lead);
+  }
+  .field-row > .tail {
+    flex: 1 1 0;
+  }
+
+  .word {
+    flex: none;
+    font-size: var(--ws);
+    font-weight: 700;
+    line-height: 0.94;
+    letter-spacing: -0.045em;
+    color: hsl(var(--primary));
+    animation: ink-in 1.3s cubic-bezier(0.2, 0.65, 0.2, 1) both;
+    animation-delay: calc(250ms + var(--i, 0) * 260ms);
+  }
+
+  .row-doing {
+    --lead: 6%;
+  }
+  .row-the {
+    --lead: 22%;
+  }
+  .row-dream {
+    --lead: 30%;
+  }
+  @media (min-width: 1024px) {
+    .row-doing {
+      --lead: 5%;
+    }
+    .row-the {
+      --lead: 15%;
+    }
+    .row-dream {
+      --lead: 25%;
+    }
+  }
+  @media (min-width: 1280px) {
+    .row-doing {
+      --lead: 8%;
+    }
+    .row-the {
+      --lead: 19%;
+    }
+    .row-dream {
+      --lead: 31%;
+    }
+  }
+
+  /* ───────────── DREAM framework: five expanding columns ───────────── */
+  .fw {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid hsl(var(--border));
+  }
+  .fw-col {
+    position: relative;
+    border-bottom: 1px solid hsl(var(--border));
+    transition:
+      background-color 0.35s ease,
+      color 0.35s ease;
+  }
+  .fw-col[data-active="true"] {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border-color: hsl(var(--primary));
+  }
+  .fw-trigger {
+    display: grid;
+    grid-template-columns: 3.25rem 1fr auto;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1rem 0.75rem;
+    text-align: left;
+    cursor: pointer;
+  }
+  .fw-col[data-active="true"] .fw-trigger {
+    cursor: default;
+  }
+  .fw-letter {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    transition: color 0.25s ease;
+  }
+  .fw-col:not([data-active="true"]):hover .fw-letter,
+  .fw-trigger:focus-visible .fw-letter {
+    color: hsl(var(--primary));
+  }
+  .fw-title {
+    font-size: 1.125rem;
+    font-weight: 600;
     letter-spacing: -0.01em;
   }
-
-  h3 {
-    @apply text-2xl md:text-3xl font-bold tracking-tight;
+  .fw-index {
+    @apply font-mono text-xs tracking-[0.14em];
+    opacity: 0.7;
+  }
+  .fw-panel {
+    padding: 0 0.75rem 1.5rem;
+    animation: rise 0.5s 0.1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .fw-panel[hidden] {
+    display: none;
   }
 
-  p {
-    @apply text-base md:text-lg leading-relaxed;
-  }
+  @media (min-width: 768px) {
+    .fw {
+      flex-direction: row;
+      height: clamp(32rem, 64vh, 37rem);
+      border-bottom: 1px solid hsl(var(--border));
+    }
+    .fw-col {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 0;
+      min-width: 0;
+      overflow: hidden;
+      border-bottom: 0;
+      border-left: 1px solid hsl(var(--border));
+      transition:
+        flex-grow 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+        background-color 0.35s ease,
+        color 0.35s ease;
+    }
+    .fw-col:last-child {
+      border-right: 1px solid hsl(var(--border));
+    }
+    .fw-col[data-active="true"] {
+      flex-grow: 4.2;
+    }
+    .fw-col:not([data-active="true"]):hover {
+      background: hsl(var(--card));
+    }
 
-  /* Focus styles for accessibility */
-  *:focus-visible {
-    @apply outline-2 outline-offset-2 outline-ring;
-  }
-}
-
-@layer utilities {
-  .hover-scale {
-    @apply transition-transform duration-200 hover:scale-105;
-  }
-
-  /* Smooth scroll with requestAnimationFrame */
-  @media (prefers-reduced-motion: no-preference) {
-    html {
-      scroll-behavior: smooth;
+    .fw-trigger {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 1.25rem;
+    }
+    .fw-col[data-active="true"] .fw-trigger {
+      position: relative;
+      inset: auto;
+      justify-content: flex-start;
+      gap: 1rem;
+      padding: 1.5rem 1.75rem 0;
+    }
+    .fw-letter {
+      font-size: clamp(3.5rem, 7vw, 8.5rem);
+    }
+    .fw-index {
+      position: absolute;
+      top: 1.35rem;
+      right: 1.25rem;
+    }
+    .fw-col:not([data-active="true"]) .fw-title {
+      @apply font-mono text-[0.72rem] font-medium uppercase tracking-[0.16em];
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      white-space: nowrap;
+      color: hsl(var(--muted-foreground));
+    }
+    .fw-col[data-active="true"] .fw-title {
+      font-size: clamp(1.5rem, 2.4vw, 2.25rem);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+    }
+    .fw-panel {
+      /* Fixed width so copy doesn't reflow while the column grows. */
+      width: min(34rem, 44vw);
+      margin-top: auto;
+      padding: 0 1.75rem 1.75rem;
+      animation-delay: 0.25s;
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
+  /* ───────────── Two-ink photo treatment ───────────── */
+  .riso {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: hsl(var(--background));
+  }
+  .riso img {
+    filter: grayscale(1) contrast(1.12) brightness(1.04);
+    transition: filter 0.6s ease;
+  }
+  .riso::before,
+  .riso::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+  }
+  .riso::before {
+    background: hsl(var(--duo-shadow));
+    mix-blend-mode: lighten;
+  }
+  .riso::after {
+    background: hsl(var(--duo-highlight));
+    mix-blend-mode: multiply;
+  }
+  .riso:hover img {
+    filter: none;
+  }
+  .riso:hover::before,
+  .riso:hover::after {
+    opacity: 0;
+  }
+
+  /* ───────────── Physical book (closing section) ───────────── */
+  .book {
+    position: relative;
+    aspect-ratio: 1190 / 1684;
+    border-radius: 2px 5px 5px 2px;
+    overflow: hidden;
+    transform: perspective(1400px) rotateY(-16deg) rotateX(3deg) rotateZ(1.5deg);
+    box-shadow:
+      1px 1px 0 hsl(0 0% 100% / 0.35) inset,
+      28px 36px 60px -18px hsl(240 80% 8% / 0.55),
+      8px 10px 18px -6px hsl(240 80% 8% / 0.35);
+    transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .book::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 7%;
+    z-index: 1;
+    background: linear-gradient(
+      90deg,
+      hsl(240 60% 10% / 0.28),
+      hsl(0 0% 100% / 0.22) 45%,
+      hsl(240 60% 10% / 0.1)
+    );
+  }
+  .book:hover {
+    transform: perspective(1400px) rotateY(-6deg) rotateX(1deg) rotateZ(0deg);
+  }
+
+  /* ───────────── Scroll reveal ───────────── */
+  [data-reveal="armed"] {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  [data-reveal="in"] {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  /* ───────────── Header scroll affordances (no JS) ───────────── */
+  .header-progress {
+    transform-origin: 0 50%;
+    transform: scaleX(0);
+  }
+  @supports (animation-timeline: scroll()) {
+    .header-progress {
+      animation: grow-x linear both;
+      animation-timeline: scroll(root);
+    }
+    .site-header {
+      animation: header-rule linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 120px;
     }
   }
 }
 
+@keyframes ink-in {
+  from {
+    color: hsl(var(--filler));
+  }
+  to {
+    color: hsl(var(--primary));
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes grow-x {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes header-rule {
+  from {
+    border-bottom-color: transparent;
+  }
+  to {
+    border-bottom-color: hsl(var(--border));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  [data-reveal="armed"] {
+    opacity: 1;
+    transform: none;
+  }
+  .book,
+  .book:hover {
+    transform: none;
+  }
+}

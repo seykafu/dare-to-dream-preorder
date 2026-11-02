@@ -1,55 +1,54 @@
-"use client";
-
-import { ExternalLink } from "lucide-react";
-
-const backgroundPhrases = [
-  "Career growth professional development skill building continuous learning",
-  "Product strategy roadmap execution cross-functional collaboration",
-  "Leadership communication innovation creativity problem-solving",
-];
+import { ArrowUp, ArrowUpRight } from "lucide-react";
+import { LINKS } from "@/lib/content";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="relative py-12 md:py-16 bg-background border-t border-border/50 overflow-hidden">
-      {/* Faded background text */}
-      <div
-        className="absolute inset-0 pointer-events-none select-none overflow-hidden"
-        style={{ opacity: 0.08 }}
-      >
-        <div className="absolute inset-0 flex flex-col justify-center text-xs font-medium text-foreground whitespace-nowrap">
-          {backgroundPhrases.map((phrase, index) => (
-            <div
-              key={index}
-              className="py-2"
-              style={{ transform: `translateX(${index * -50}px)` }}
-            >
-              {[...Array(6)].map((_, i) => (
-                <span key={i} className="mx-6">{phrase}</span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center gap-6 text-center">
-          <p className="text-base md:text-lg font-semibold text-foreground">
-            Doing The Dream — © {currentYear} Kasey Fu
+    <footer className="overflow-hidden border-t border-border pt-16">
+      <div className="container">
+        <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <p className="max-w-[34ch] text-lg leading-relaxed text-muted-foreground">
+            A new non-fiction book on navigating career anxiety with clarity and confidence.
           </p>
+          <ul className="flex flex-wrap gap-x-8 gap-y-3 text-sm font-medium">
+            <li>
+              <a
+                href={LINKS.author}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-foreground hover:text-primary"
+              >
+                kaseyfu.com <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+              </a>
+            </li>
+            <li>
+              <a
+                href={LINKS.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-foreground hover:text-primary"
+              >
+                YouTube <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+              </a>
+            </li>
+            <li>
+              <a href="#top" className="inline-flex items-center gap-1 text-foreground hover:text-primary">
+                Back to top <ArrowUp className="h-3.5 w-3.5" aria-hidden />
+              </a>
+            </li>
+          </ul>
+        </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm text-muted-foreground">
-            <a
-              href="https://kaseyfu.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary transition-colors inline-flex items-center gap-1"
-            >
-              kaseyfu.com
-              <ExternalLink className="h-3 w-3" />
-            </a>
-          </div>
+        <p
+          aria-hidden
+          className="mt-14 select-none whitespace-nowrap pb-[0.14em] text-center text-[min(12.4vw,10.6rem)] font-bold leading-[0.8] tracking-[-0.055em] text-primary"
+        >
+          Doing The Dream
+        </p>
+        <div className="flex flex-col gap-2 border-t border-border py-6 text-xs text-muted-foreground sm:flex-row sm:justify-between">
+          <p>© {year} Kasey Fu. All rights reserved.</p>
+          <p className="font-mono uppercase tracking-[0.14em]">Doing The Dream</p>
         </div>
       </div>
     </footer>

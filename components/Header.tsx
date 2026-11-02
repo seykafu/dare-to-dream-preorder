@@ -1,150 +1,123 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Headphones } from "lucide-react";
-import Link from "next/link";
-import { useScrollProgress } from "@/hooks/useScrollProgress";
+import { Menu } from "lucide-react";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useActiveSection } from "@/hooks/useActiveSection";
-import { PodcastPanel } from "@/components/PodcastPanel";
-import { PixelHeart } from "@/components/PixelElements";
+import { cn } from "@/lib/utils";
+
+const navItems = [
+  { id: "book", label: "The book" },
+  { id: "framework", label: "Framework" },
+  { id: "author", label: "Author" },
+  { id: "podcast", label: "Podcast" },
+];
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isPodcastOpen, setIsPodcastOpen] = useState(false);
-  const progress = useScrollProgress();
+  const [menuOpen, setMenuOpen] = useState(false);
   const activeSection = useActiveSection();
 
-  const handleNavClick = () => {
-    setIsOpen(false);
-  };
-
-  const navItems = [
-    { id: "home", label: "Home", href: "#home" },
-    { id: "dream", label: "DREAM", href: "#dream" },
-    { id: "about", label: "About", href: "#about" },
-    { id: "preorder", label: "Pre-Order", href: "#preorder" },
-  ];
-
-  const backgroundPhrase = "Career growth professional development skill building continuous learning roadmap execution cross-functional collaboration";
-
   return (
-    <header className="sticky top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-sm overflow-hidden">
-      {/* Faded background text */}
-      <div
-        className="absolute inset-0 pointer-events-none select-none overflow-hidden"
-        style={{ opacity: 0.08 }}
+    <header className="site-header sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md supports-[backdrop-filter]:bg-background/75">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
       >
-        <div className="absolute inset-0 flex items-center text-[10px] font-medium text-foreground whitespace-nowrap">
-          {[...Array(8)].map((_, i) => (
-            <span key={i} className="mx-4">{backgroundPhrase}</span>
-          ))}
-        </div>
-      </div>
+        Skip to content
+      </a>
 
-      {/* Progress Bar */}
-      <div className="absolute top-0 left-0 right-0 h-0.5 bg-muted/50 z-10">
-        <div
-          className="h-full bg-gradient-to-r from-primary via-accent to-primary transition-all duration-150 ease-out origin-left"
-          style={{ width: `${progress}%` }}
-        />
-      </div>
+      <div className="container flex h-16 items-center justify-between gap-6">
+        <a href="#top" className="text-lg font-bold tracking-[-0.03em] text-primary">
+          Doing The Dream
+        </a>
 
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Pixel Heart Logo */}
-          <Link
-            href="#home"
-            className="flex items-center gap-2 hover:opacity-80 transition-opacity group"
-          >
-            <PixelHeart size={36} animated />
-            <span className="font-bold text-lg tracking-tight text-foreground group-hover:text-primary transition-colors">
-              DTD
-            </span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.id}
-                href={item.href}
-                className={`text-sm font-medium transition-colors relative py-2 ${
-                  activeSection === item.id
-                    ? "text-primary"
-                    : "text-foreground/70 hover:text-foreground"
-                }`}
-              >
-                {item.label}
-                {activeSection === item.id && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full" />
-                )}
-              </Link>
-            ))}
-
-            {/* Podcast Button - Opens Panel */}
-            <PodcastPanel isOpen={isPodcastOpen} onOpenChange={setIsPodcastOpen}>
-              <button
-                className={`text-sm font-medium transition-colors relative py-2 inline-flex items-center gap-1.5 ${
-                  isPodcastOpen
-                    ? "text-primary"
-                    : "text-foreground/70 hover:text-foreground"
-                }`}
-              >
-                <Headphones className="w-4 h-4" />
-                Podcast
-                {isPodcastOpen && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full" />
-                )}
-              </button>
-            </PodcastPanel>
-          </nav>
-
-          {/* Mobile Menu */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="md:hidden"
-                aria-label="Toggle menu"
-              >
-                <Menu className="h-6 w-6" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <div className="flex flex-col gap-6 mt-8">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.id}
-                    href={item.href}
-                    onClick={handleNavClick}
-                    className={`text-left text-lg font-medium transition-colors ${
-                      activeSection === item.id
-                        ? "text-primary"
-                        : "text-foreground hover:text-primary"
-                    }`}
+        <nav aria-label="Sections" className="hidden md:block">
+          <ul className="flex items-center gap-1">
+            {navItems.map((item) => {
+              const active = activeSection === item.id;
+              return (
+                <li key={item.id}>
+                  <a
+                    href={`#${item.id}`}
+                    aria-current={active ? "location" : undefined}
+                    className={cn(
+                      "relative rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                      active ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+                    )}
                   >
                     {item.label}
-                  </Link>
-                ))}
+                    <span
+                      aria-hidden
+                      className={cn(
+                        "absolute inset-x-3 -bottom-px h-0.5 origin-left bg-primary transition-transform duration-300",
+                        active ? "scale-x-100" : "scale-x-0",
+                      )}
+                    />
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
 
-                {/* Mobile Podcast Button */}
-                <PodcastPanel>
-                  <button
-                    onClick={handleNavClick}
-                    className="text-left text-lg font-medium transition-colors text-foreground hover:text-primary inline-flex items-center gap-2"
-                  >
-                    <Headphones className="w-5 h-5" />
-                    Podcast
-                  </button>
-                </PodcastPanel>
-              </div>
+        <div className="flex items-center gap-2">
+          <a
+            href="#preorder"
+            className="inline-flex h-10 items-center rounded-md bg-primary px-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            <span className="sm:hidden">Chapter 3</span>
+            <span className="hidden sm:inline">Get Chapter 3 free</span>
+          </a>
+
+          <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
+            <SheetTrigger asChild>
+              <button
+                type="button"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-md text-foreground hover:bg-secondary md:hidden"
+                aria-label="Open menu"
+              >
+                <Menu className="h-5 w-5" aria-hidden />
+              </button>
+            </SheetTrigger>
+            <SheetContent
+              side="right"
+              aria-describedby={undefined}
+              className="w-[85vw] max-w-sm border-border bg-background p-8"
+            >
+              <SheetTitle className="text-lg font-bold tracking-[-0.03em] text-primary">
+                Doing The Dream
+              </SheetTitle>
+              <nav aria-label="Sections" className="mt-10">
+                <ul className="border-t border-border">
+                  {navItems.map((item, i) => (
+                    <li key={item.id} className="border-b border-border">
+                      <a
+                        href={`#${item.id}`}
+                        onClick={() => setMenuOpen(false)}
+                        className="flex items-baseline gap-4 py-4 text-2xl font-semibold tracking-tight text-foreground"
+                      >
+                        <span className="font-mono text-xs text-primary">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+              <a
+                href="#preorder"
+                onClick={() => setMenuOpen(false)}
+                className="mt-8 inline-flex h-12 w-full items-center justify-center rounded-md bg-primary font-semibold text-primary-foreground"
+              >
+                Get Chapter 3 free
+              </a>
             </SheetContent>
           </Sheet>
         </div>
       </div>
+
+      <div aria-hidden className="header-progress absolute inset-x-0 -bottom-px h-0.5 bg-primary" />
     </header>
   );
 }

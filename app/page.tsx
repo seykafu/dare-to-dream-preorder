@@ -1,27 +1,26 @@
 import { Header } from "@/components/Header";
-import { HeroSection } from "@/components/HeroSection";
-import { DreamPentagon } from "@/components/DreamPentagon";
-import { AboutSection } from "@/components/AboutSection";
+import { Hero } from "@/components/Hero";
+import { BookSection } from "@/components/BookSection";
+import { FrameworkSection } from "@/components/FrameworkSection";
+import { AuthorSection } from "@/components/AuthorSection";
+import { Podcast } from "@/components/Podcast";
+import { ClosingCta } from "@/components/ClosingCta";
 import { Footer } from "@/components/Footer";
-import { StickyJoinPill } from "@/components/StickyJoinPill";
-import { BackgroundText } from "@/components/BackgroundText";
+import { SignupProvider } from "@/components/signup/SignupProvider";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col relative">
-      {/* Faded professional text background */}
-      <BackgroundText />
-
+    <SignupProvider>
       <Header />
-
-      <main className="flex-1 relative z-10">
-        <HeroSection />
-        <DreamPentagon />
-        <AboutSection />
+      <main id="main">
+        <Hero />
+        <BookSection />
+        <FrameworkSection />
+        <AuthorSection />
+        <Podcast />
+        <ClosingCta />
       </main>
-
       <Footer />
-      <StickyJoinPill />
-    </div>
+    </SignupProvider>
   );
 }
